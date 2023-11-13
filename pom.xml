@@ -32,6 +32,10 @@
             <version>2.17.14</version>
         </dependency>
         <dependency>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+            <groupId>org.springframework.boot</groupId>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
@@ -51,7 +55,23 @@
                         </exclude>
                     </excludes>
                 </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>
+                                build-info
+                            </goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
+
+            <!-- Plugin to populate git related details -->
+            <plugin>
+                <groupId>pl.project13.maven</groupId>
+                <artifactId>git-commit-id-plugin</artifactId>
+            </plugin>
+
         </plugins>
     </build>
 
